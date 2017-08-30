@@ -15,7 +15,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     
     $scope.days = $routeParams.days || '2';
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=7e180e4edb2eb7b5d57c279041d3e3f8", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
     
