@@ -15,7 +15,7 @@ weatherApp.controller('forecastController', ['$scope', '$log', '$resource', '$ro
     $scope.city = cityService.city;
     $scope.days = $routeParams.days || '2';
     
-    $scope.weatherAPI = $resource("https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=7e180e4edb2eb7b5d57c279041d3e3f8", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI = $resource("https://api.openweathermap.org/data/2.5/forecast?APPID=7e180e4edb2eb7b5d57c279041d3e3f8", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.days });
     
@@ -32,7 +32,7 @@ weatherApp.controller('forecastController', ['$scope', '$log', '$resource', '$ro
         
     };
     
-    $log.info(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    console.log("current time: " + moment().format('MMMM Do YYYY, h:mm:ss a'));
     
     
 //    console.log($scope.weatherResult);
