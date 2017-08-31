@@ -10,7 +10,7 @@ weatherApp.controller('homeController', ['$scope', 'cityService', function($scop
     
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService) {
+weatherApp.controller('forecastController', ['$scope', '$log', '$resource', '$routeParams', 'cityService', function($scope, $log, $resource, $routeParams, cityService) {
     
     $scope.city = cityService.city;
     $scope.days = $routeParams.days || '2';
@@ -31,7 +31,9 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
         return new Date(dt * 1000);
         
     };
-
+    
+    $log.info(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    
     
 //    console.log($scope.weatherResult);
 //    console.log($scope.weatherResult.$promise.then(function(obj){
