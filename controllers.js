@@ -21,14 +21,14 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     
     
     $scope.convertToFahrenheit = function(degK) {
-        console.log("origin degree " + degK);
+        // console.log("origin degree " + degK);
         return Math.round((1.8 * (degK - 273)) + 32);
         
     }
     
     $scope.convertToDate = function(dt) { 
         
-        return new Date(dt);
+        return new Date(dt * 1000);
         
     };
 
